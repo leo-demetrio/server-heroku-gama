@@ -6,7 +6,7 @@ import userResponse from "../responses/userResponses";
 class UserController {
     public async reg(req: Request, res: Response): Promise<Response> {
         try{  
-            // console.log(req.body);return;
+            console.log(req.body);
             const user =  await userRepository.createUser(req.body);
             return res.json(userResponse.responsePostUsers(user));
         }catch (e) {
