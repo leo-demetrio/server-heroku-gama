@@ -8,8 +8,8 @@ class UserRepository {
     }
     public async createUser(body) {
         try{
-            console.log("UserRepository +++++++++++++++++  " + body);
-            const user = await this.userModel.create(...body);
+            console.log("UserRepository +++++++++++++++++  " + body.name);
+            const user = await this.userModel.create(body);
             return user;
         }catch(e){
             console.log("Erro na classe UserRepositoy" + e)
