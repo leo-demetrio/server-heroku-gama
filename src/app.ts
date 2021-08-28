@@ -6,8 +6,8 @@ import 'dotenv/config';
 
 export class App {
     private express: express.Application;
-    private port = 9000;
-    private connection = process.env.CONNECTION;
+    private port = process.env.PORT || 3000;
+    private connection = process.env.MONGO_URL;
 
     constructor(){
         this.express = express();       
