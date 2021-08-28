@@ -7,7 +7,7 @@ interface UserModel extends UserInterface, Document {}
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     office: {
         type: String,
