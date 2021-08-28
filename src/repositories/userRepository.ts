@@ -8,6 +8,7 @@ class UserRepository {
     }
     public async createUser(body) {
         try{
+            console.log("UserRepository +++++++++++++++++  " + body);
             const user = await this.userModel.create(body);
             return user;
         }catch(e){
