@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRoutes';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDocs from './swagger.json';
+import swaggerDocs from 'swagger.json';
 import 'dotenv/config';
 
 export class App {
