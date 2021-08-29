@@ -8,7 +8,9 @@ class UserRepository {
     }
     public async createUser(body) {
         try{
-            console.log("UserRepository +++++++++++++++++  " + body);
+            body.cpf = body.cpf?.replace(/[^0-9]/g,'');        
+            // console.log(body);
+            // return;
             const user = await this.userModel.create(body);
             return user;
         }catch(e){
@@ -22,6 +24,20 @@ class UserRepository {
         try{
             const allUser = await this.userModel.find();
             return allUser;
+        }catch(e){
+            console.log(e)
+        }
+     
+    }
+    public async findOneCPF(dataCPF) {
+        try{
+            const cpf = dataCPF?.replace(/[^0-9]/g,'');
+            const result = await user_models.findOne({cpf});
+            if(result === null || result === undefined)  return false;
+            // console.log(cpf);
+            // console.log(result);
+            // return;
+            return result;
         }catch(e){
             console.log(e)
         }
