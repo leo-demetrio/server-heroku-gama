@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRoutes';
-import swaggerUi from 'swagger-ui-express';
-import swaggerDocs from './api.schema.json';
+// import swaggerUi from 'swagger-ui-express';
+// import swaggerDocs from './api.schema.json';
 import 'dotenv/config';
 
 export class App {
@@ -30,7 +30,7 @@ export class App {
                 "preflightContinue": false,        
               
         }));
-        this.express.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+        // this.express.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
     }
 
