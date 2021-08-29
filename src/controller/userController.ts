@@ -18,6 +18,15 @@ class UserController {
             return res.status(409).json(userResponse.responsePostNotCreated(req.body))
         }
     }
+    public async list(req: Request, res: Response): Promise<Response> {
+        try{
+            
+            const user = await userRepository.listAll();
+            return res.json(user);
+        }catch(e){
+            console.log("Erro" + e)
+        }
+    }
 }
 
 export default new UserController();
