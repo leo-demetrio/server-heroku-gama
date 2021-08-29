@@ -6,11 +6,10 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerDocs from './swagger.json';
 import 'dotenv/config';
 
-
 export class App {
     private express: express.Application;
-    private port = 9000;
-    private connection = process.env.CONNECTION;
+    private port = process.env.PORT || 3000;
+    private connection = process.env.MONGO_URL;
 
     constructor(){
         this.express = express();       
@@ -25,8 +24,14 @@ export class App {
 
     private middlewares() {
         this.express.use(express.json());
-        this.express.use(cors());
+        this.express.use(cors( {            
+                "origin": "*",
+                "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+                "preflightContinue": false,        
+              
+        }));
         this.express.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
     }
 
    
