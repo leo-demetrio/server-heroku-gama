@@ -1,0 +1,116 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Projeto final Gama Academy",
+        "description": "API tem como objetivo registrar informações de um usuário"
+    },
+    "version": "1.0.0",
+    "servers": [
+        {
+            "url": "http://localhost:9000/v1/usuarios",
+            "description": "Url base para acessar os usuários cadastrados"
+        }
+    ],
+    "paths": {
+        "/cadastro": {
+            "post": {
+                "sumary": "Registrar usuário",
+                "description": "Rota de cadastro de usuário",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value":{  
+
+                                        "name": "Seu Nome Completo",
+                                        "office": "Programador",
+                                        "profession": "Eletricista",
+                                        "birthdate": "2021-08-17",
+                                        "cpf": "99999999999",
+                                        "email": "leopoldo@gmail.com",
+                                        "fixedline1": "21999999999",
+                                        "fixedline2": "21999999999",
+                                        "celphone": "21999999999",
+                                        "zipcode": "20715-569",
+                                        "neighborhood": "Seu Bairro",
+                                        "address": "Rua Mais Bonita",
+                                        "city": "Rio de Janeiro",
+                                        "sex": "feminino"                                                                       
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Criado com sucesso"
+                    },
+                    "409": {
+                        "description": "Não foi possível criar usuário"
+                    }
+             
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"                      
+                    },
+                    "office": {
+                        "type": "string"                       
+                    },
+                    "profession": {
+                        "type": "string"                       
+                    },
+                    "birthdate": {
+                        "type": "string"                        
+                    },
+                    "cpf": {
+                        "type": "string"                        
+                    },
+                    "email": {
+                        "type": "string"                        
+                    },
+                    "fixedline1": {
+                        "type": "string"                        
+                    },
+                    "fixedline2": {
+                        "type": "string"                        
+                    },
+                    "celphone": {
+                        "type": "string"                        
+                    },
+                    "zipcode": {
+                        "type": "string"                        
+                    },
+                    "neighborhood": {
+                        "type": "string"                        
+                    },
+                    "address": {
+                        "type": "string"                        
+                    },
+                    "number": {
+                        "type": "string"                        
+                    },
+                    "city": {
+                       "type": "string"
+                    },
+                    "sex": {
+                        "type": "string"                        
+                    } 
+                }
+            }
+        }
+    }
+
+}
